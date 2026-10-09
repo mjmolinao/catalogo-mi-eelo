@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Telas y personalización · mi eelo</title>
+<meta name="description" content="Guía de telas, serigrafía vs DTF, simulador de pliego DTF y precios por volumen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body data-pagina="personalizacion">
+<div id="encabezado"></div>
+<header class="cabecera"><div class="wrap">
+  <div class="migas"><a href="index.html">Inicio</a> / Personalización</div>
+  <div class="eyebrow">Telas, estampado y volumen</div>
+  <h1>Cómo se arma su producto.</h1>
+  <p class="lead">Tres decisiones definen el precio: la tela, la técnica de estampado y la cantidad.</p>
+  <div class="botonera" style="margin-top:24px"><a href="#telas" class="btn btn-ghost btn-sm">Telas</a><a href="#tecnicas" class="btn btn-ghost btn-sm">Serigrafía o DTF</a><a href="#dtf" class="btn btn-ghost btn-sm">Simulador DTF</a><a href="#volumen" class="btn btn-ghost btn-sm">Volumen</a></div>
+</div></header>
+
+<section id="telas" style="background:var(--blanco)"><div class="wrap">
+  <div class="eyebrow">01 · Telas</div>
+  <h2>Elija la tela por el uso, no por el nombre.</h2>
+  <p class="lead">Empiece por la pregunta más simple: ¿para qué va a usarse? Esa respuesta le dice qué tela conviene.</p>
+  <div class="guia">
+    <div class="uso"><div class="q">Para un evento</div><h3>Entrega masiva o regalo</h3><p>Muchas unidades, diseño sencillo, presupuesto ajustado.</p><div class="rec">→ Manta Esencial o Manta Clásica</div></div>
+    <div class="uso"><div class="q">Para su marca</div><h3>Merch, empaque o venta en tienda</h3><p>Su logo con detalle fino y un acabado que represente a su marca.</p><div class="rec">→ Oxford o Palacio</div></div>
+    <div class="uso"><div class="q">Para cargar</div><h3>Uso diario y peso</h3><p>Libros, mercado, laptop. Una bolsa que se sostiene sola y dura.</p><div class="rec">→ Lona o Lona Premium</div></div>
+  </div>
+  <div class="grid-telas" id="gridTelas"></div>
+  <p class="nota">Las telas son de fibra natural sin teñir; el tono crudo puede variar ligeramente entre lotes. Con el calor del estampado presentan un leve encogimiento, que consideramos en el corte.</p>
+</div></section>
+
+<section id="tecnicas"><div class="wrap">
+  <div class="eyebrow">02 · Estampado</div>
+  <h2>Serigrafía o DTF: depende de su diseño.</h2>
+  <p class="lead">Si su logo tiene pocos colores planos, la serigrafía es ideal. Si tiene muchos colores, degradados o líneas muy finas, el DTF lo reproduce con fidelidad.</p>
+  <div class="tecnicas">
+    <div class="tecnica"><h3>Serigrafía</h3><p class="sub">Tinta aplicada con malla, color por color.</p>
+      <ul><li>Ideal para logos de 1 a 3 colores planos.</li><li>Acabado integrado a la tela, muy resistente al lavado.</li><li>Cada color lleva su propia malla.</li></ul>
+      <table class="precios" id="tablaSerigrafia"></table>
+      <p class="nota">Precio por cara estampada, pedidos de hasta 50 unidades. Para más de 3 colores o degradados, recomendamos DTF.</p></div>
+    <div class="tecnica"><h3>DTF</h3><p class="sub">Impresión digital transferida con calor.</p>
+      <ul><li>Full color, degradados, fotografías y líneas finas.</li><li>Puede usar un diseño distinto en cada cara sin costo de preparación adicional.</li><li>Se imprime en pliegos de 60 × 100 cm: entre más pequeño el arte, más piezas caben y menor el precio.</li></ul>
+      <table class="precios" id="tablaDTF"></table>
+      <p class="nota">Precio por cara estampada, pedidos de hasta 50 unidades. Incluye impresión y aplicación.</p></div>
+  </div>
+  <div class="simulador" id="dtf">
+    <div>
+      <h3>¿Cuánto cuesta su arte en DTF?</h3>
+      <p>El precio depende de cuántas veces cabe su diseño en un pliego de 60 × 100 cm. Elija un tamaño o escriba las medidas de su arte.</p>
+      <div class="sim-ctrl" id="simCtrl"></div>
+      <div class="sim-custom"><span>Ancho</span><input type="number" id="simW" min="2" max="60" value="20" aria-label="Ancho del arte en cm"><span>×</span><span>Alto</span><input type="number" id="simH" min="2" max="100" value="20" aria-label="Alto del arte en cm"><span>cm</span></div>
+      <div class="sim-res"><div><b id="simN">–</b><span>piezas por pliego</span></div><div><b id="simP">–</b><span>por cara estampada*</span></div></div>
+      <p class="nota" style="color:var(--lino)">*Pedido de hasta 50 unidades. Incluye impresión y aplicación.</p>
+    </div>
+    <div class="metro-box"><div class="metro"><svg id="metroSvg" viewBox="0 0 60 100"></svg></div><div class="metro-lbl">Pliego DTF · 60 × 100 cm</div></div>
+  </div>
+  <div class="caras">
+    <div class="cara"><h4>Solo frente</h4><p>Lo más común: su logo al frente, reverso limpio.</p></div>
+    <div class="cara"><h4>Solo reverso</h4><p>Mismo precio que el frente. Útil para mensajes discretos.</p></div>
+    <div class="cara"><h4>Ambas caras</h4><p>Cada cara se cotiza por separado: puede llevar técnicas, tamaños o diseños distintos.</p></div>
+  </div>
+</div></section>
+
+<section id="volumen" style="background:var(--blush)"><div class="wrap">
+  <div class="eyebrow">03 · Volumen</div>
+  <h2>Desde 51 unidades, su precio baja.</h2>
+  <p class="lead">Ejemplo: tote sin fuelle T-REG-001 (15" × 15") en Oxford, con logo mediano en DTF al frente. Precio por unidad según cantidad:</p>
+  <div class="escalas" id="gridEscalas"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">04 · Cómo trabajamos</div>
+  <h2>De su idea a su pedido.</h2>
+  <div class="proceso">
+    <div><h4>Cotización</h4><p>Nos comparte el código del producto, la cantidad y su arte. Le enviamos la cotización formal.</p></div>
+    <div><h4>Arte y aprobación</h4><p>Revisamos medidas y colores de su diseño y le compartimos la propuesta de ubicación para aprobar.</p></div>
+    <div><h4>Producción</h4><p>Cortamos, confeccionamos y estampamos en nuestro taller en la Ciudad de Guatemala.</p></div>
+    <div><h4>Entrega</h4><p>Revisamos pieza por pieza y coordinamos la entrega o el envío (Q100 por envío).</p></div>
+  </div>
+  <div class="banda-cta"><div><h3>Todo listo para cotizar</h3><p>Arme su pedido y envíelo por WhatsApp o correo.</p></div><a href="cotizador.html" class="btn btn-terra">Abrir cotizador</a></div>
+</div></section>
+<div id="pie"></div>
+<script src="assets/datos.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

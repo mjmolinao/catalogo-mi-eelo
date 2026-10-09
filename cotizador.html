@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cotizador · mi eelo</title>
+<meta name="description" content="Cotice su pedido de productos personalizados al instante.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body data-pagina="cotizador">
+<div id="encabezado"></div>
+<header class="cabecera" style="padding-bottom:28px"><div class="wrap">
+  <div class="migas"><a href="index.html">Inicio</a> / Cotizador</div>
+  <div class="eyebrow">Cotizador</div>
+  <h1>Arme su pedido y vea el precio.</h1>
+  <p class="lead">El resultado es una referencia. Al recibir su arte confirmamos la cotización final y se la enviamos por escrito.</p>
+</div></header>
+<section style="padding-top:0"><div class="wrap"><div class="cot">
+  <form class="form" id="cotForm" onsubmit="return false"></form>
+  <aside class="resumen" aria-live="polite">
+    <div class="r-top"><div class="r-foto" id="rFoto"></div>
+      <div><span class="r-cod" id="rCod"></span><div class="unit" id="rUnit"></div></div></div>
+    <div class="config" id="rConfig"></div>
+    <div class="desglose" id="rDesglose"></div>
+    <div class="hint" id="rHint"></div>
+    <div class="avisos" id="rAvisos"></div>
+    <a class="btn btn-terra" id="btnWa" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+    <a class="btn btn-ghost" id="btnMail">Enviar por correo</a>
+    <p class="legal">Precios de referencia en quetzales. La cotización final se confirma al revisar su arte.</p>
+  </aside>
+</div></div></section>
+<div id="pie"></div>
+<script src="assets/datos.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
