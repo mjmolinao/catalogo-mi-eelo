@@ -9,6 +9,7 @@ const CONFIG = {
   margen: 0.20,                 // margen constante sobre costo de producción
   factorPublico: 1.00,          // >1 publica por encima del 30/30/20/20 (ancla de negociación)
   redondeo: 0.50,               // precios redondeados hacia arriba a Q0.50
+  usarFotos: false,             // false = íconos a la medida; true = fotos de Framer (imgs de cada producto)
   eficienciaCorte: 0.85,        // aprovechamiento de tela [CONFIRMAR con Fer]
   hiloAvios: 1.50,              // hilo, etiqueta, avíos por pieza [CONFIRMAR]
   cinta: { precioYd: 1.00, pulgadas: 48 },               // asas de cinta de polipropileno (2 × 24")
@@ -57,7 +58,7 @@ const ARTES = [
 
 const CATEGORIAS = [
   { id:'totes',       nombre:'Tote bags',         corto:'Totes',       pagina:'totes.html',
-    desc:'Seis construcciones, de la tote plana a la de mercado. Nuestro producto más pedido.', color:'#E89777' },
+    desc:'Siete construcciones, de la tote plana a la de mercado. Nuestro producto más pedido.', color:'#E89777' },
   { id:'empaque',     nombre:'Bolsas de empaque', corto:'Empaque',     pagina:'empaque.html',
     desc:'Costalitos de tela con pita, de 2.5" a 20". Para joyería, regalos y sets.', color:'#95ADA8' },
   { id:'restaurante', nombre:'Restaurante',       corto:'Restaurante', pagina:'restaurante.html',
@@ -81,7 +82,8 @@ const PRODUCTOS = [
     desc:'La tote plana clásica. La más versátil para estampar en ambas caras.',
     calculo:'plana', cierre:'cinta', minutos:25, imgs:[F+'0r0PQXn5TN8Bv4qXKM2b1svMew.png', F+'Yj1EQdi7qDRWM36ovUHgh6l2co.png'],
     variantes:[ {cod:'T-REG-001', med:[15,15]}, {cod:'T-REG-002', med:[15,17]}, {cod:'T-REG-003', med:[19,15]},
-                {cod:'T-REG-004', med:[16,18]}, {cod:'T-REG-005', med:[18,20]} ] },
+                {cod:'T-REG-004', med:[16,18]}, {cod:'T-REG-005', med:[18,20]},
+                {cod:'T-REG-13x15', med:[13,15], provisional:true} ] },
   { id:'mercado', cat:'totes', nombre:'Tipo mercado', rasgo:'Fuelle de 3 piezas', ilus:'mercado',
     desc:'Frente, reverso y una franja que forma base y costados. Hecha para cargar.',
     calculo:'fuelle', cierre:'cinta', minutos:38, imgs:[F+'MIzaddZr2i3dqlB2z8rtDNOGSs.png', F+'tE2vIL08i8PWSb7y1RLW32a4fY.png'],
@@ -90,16 +92,21 @@ const PRODUCTOS = [
   { id:'lateral', cat:'totes', nombre:'Fuelle lateral', rasgo:'Tirantes adjuntos al fuelle', ilus:'lateral',
     desc:'Fuelle a los costados con los tirantes cosidos al fuelle. Más capacidad y caída estructurada.',
     calculo:'fuelle', cierre:'cinta', minutos:38, imgs:[F+'DoC0NwfAm8mDtxMEFboM7G0qgMs.png', F+'FJBmnO6HDHP3uGoEjk561yS6WEA.png', F+'L2K7b8comFjq85zYKeHhJwgUN0A.png'],
-    variantes:[ {cod:'T-FUE-005', med:[18,18,4]}, {cod:'T-FUE-TAPA', med:[15,15,3], nota:'Con tapa'} ] },
+    variantes:[ {cod:'T-FUE-005', med:[18,18,4]}, {cod:'T-FUE-TAPA', med:[15,15,3], nota:'Con tapa'},
+                {cod:'T-LAT-13x15x4', med:[13,15,4], provisional:true}, {cod:'T-LAT-15x15x4', med:[15,15,4], provisional:true} ] },
   { id:'triangular', cat:'totes', nombre:'Fuelle triangular', rasgo:'Fondo con fuelle triangular', ilus:'triangular',
     desc:'Fondo con fuelle triangular: gana volumen sin perder la silueta.',
     calculo:'fuelle', cierre:'cinta', minutos:30, imgs:[F+'cW23EIt1eDUXA9rZwu1bXPibAD8.png', F+'S0c1nJWzOu5M8toOCv84DoQkU0.png'],
-    variantes:[ {cod:'T-FUE-006', med:[17,16,5]} ] },
-  { id:'circular', cat:'totes', nombre:'Circular y corazón', rasgo:'Bolsillos externos', ilus:'circular',
-    desc:'Silueta redonda o de corazón, con bolsillos externos. Una pieza que no pasa desapercibida.',
-    calculo:'fuelle', cierre:'cinta', minutos:42, imgs:[F+'jKFS5aZY9nZtA8gEZmfIi8unuIs.png', F+'HOchC3u6wi65nBpv6jXJ8AE0wQ.png'],
-    variantes:[ {cod:'T-CIR-001', med:[15,15,1], nota:'Circular'}, {cod:'T-COR-001', med:[14,13,3], nota:'Corazón'},
-                {cod:'T-COR-002', med:[20,15,4], nota:'Corazón'} ] },
+    variantes:[ {cod:'T-FUE-006', med:[17,16,5]},
+                {cod:'T-TRI-13x15x4', med:[13,15,4], provisional:true}, {cod:'T-TRI-15x15x4', med:[15,15,4], provisional:true} ] },
+  { id:'circular', cat:'totes', nombre:'Circular', rasgo:'Bolsillos externos', ilus:'circular',
+    desc:'Silueta redonda con bolsillos externos. Una pieza que no pasa desapercibida.',
+    calculo:'fuelle', cierre:'cinta', minutos:42, imgs:[F+'jKFS5aZY9nZtA8gEZmfIi8unuIs.png'],
+    variantes:[ {cod:'T-CIR-001', med:[15,15,1], nota:'Circular'} ] },
+  { id:'corazon', cat:'totes', nombre:'Corazón', rasgo:'Bolsillos externos', ilus:'corazon',
+    desc:'Silueta de corazón con bolsillos externos. Ideal para regalos y fechas especiales.',
+    calculo:'fuelle', cierre:'cinta', minutos:42, imgs:[F+'HOchC3u6wi65nBpv6jXJ8AE0wQ.png'],
+    variantes:[ {cod:'T-COR-001', med:[14,13,3], nota:'Corazón'}, {cod:'T-COR-002', med:[20,15,4], nota:'Corazón'} ] },
   { id:'gabachatote', cat:'totes', nombre:'Tipo gabacha', rasgo:'Tirantes sin costura · bolsillo exterior', ilus:'gabacha',
     desc:'Los tirantes nacen del mismo corte de la bolsa, sin costura de unión. Con bolsillo exterior.',
     calculo:'gabacha', cierre:null, minutos:32, imgs:[F+'1UpMcDwUE3g84d6P1qBkW01ZCdo.png', F+'4xglbae3YPGKxpkDv3iEYfCS60.png'],
@@ -139,7 +146,7 @@ const PRODUCTOS = [
     variantes:[ {cod:'T-PAN-001', med:[26.5,9.5]}, {cod:'T-PAN-002', med:[9,20]} ] },
 
   /* ---------- OTROS ---------- */
-  { id:'algodon', cat:'otros', nombre:'Bolsa de algodón', rasgo:'Circular, con pita', ilus:'costalito',
+  { id:'algodon', cat:'otros', nombre:'Bolsa de algodón', rasgo:'Circular, con pita', ilus:'algodon',
     desc:'Bolsa de algodón de fondo circular con cierre de pita.',
     calculo:'plana', cierre:'pita', pitas:[1], minutos:{ base:10, porIn2:1/60 },
     imgs:[F+'lnOrxOshtwEj52Gja6eHuUC7Icw.png', F+'oU7YSXnvhlaFYPEfbRUrumu4.png'],

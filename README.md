@@ -6,7 +6,7 @@ Sitio estático (HTML + CSS + JS, sin instalar nada) con el catálogo B2B de mi 
 | Archivo | Contenido |
 |---|---|
 | `index.html` | Inicio: categorías, totes más pedidas, historia |
-| `totes.html` | 6 modelos de tote con códigos T-REG, T-FUE, T-CIR, T-COR, T-UNI |
+| `totes.html` | 7 modelos de tote con códigos T-REG, T-FUE, T-CIR, T-COR, T-UNI |
 | `empaque.html` | Costalitos B-PACK-026 a 040 (doble pita / 1 pita) |
 | `restaurante.html` | Gabachas, mandil, bolsas de vino, paneras |
 | `otros.html` | Yoga, cangureras, monederos, bolsas de algodón, cosmetiqueras |

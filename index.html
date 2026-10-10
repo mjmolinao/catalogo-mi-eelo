@@ -8,9 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/estilos.css">
+<link rel="stylesheet" href="assets/estilos.css?v=6">
 </head>
 <body data-pagina="inicio">
+<div id="cargador" aria-hidden="true">
+  <div class="cg-logo">
+    <div class="cg-sol"><img src="assets/img/logo-sol.png" alt=""></div>
+    <img class="cg-txt" src="assets/img/logo-texto.png" alt="">
+    <div class="cg-barra"><i></i></div>
+  </div>
+</div>
+<script>try{var c=document.getElementById('cargador');if(sessionStorage.getItem('mieelo-visto'))c.classList.add('rapido');sessionStorage.setItem('mieelo-visto','1')}catch(e){}</script>
 <div id="encabezado"></div>
 <header class="hero"><div class="wrap">
   <div>
@@ -45,7 +53,7 @@
 <section style="background:var(--blush)"><div class="wrap">
   <div class="eyebrow">Lo más pedido</div>
   <h2>Totes personalizadas</h2>
-  <p class="lead">Seis construcciones distintas. Elija una para ver sus medidas y precios.</p>
+  <p class="lead">Siete construcciones distintas. Elija una para ver sus medidas y precios.</p>
   <div class="atajos" id="atajosTotes"></div>
 </div></section>
 
@@ -74,7 +82,7 @@
   </div>
 </div></section>
 <div id="pie"></div>
-<script src="assets/datos.js"></script>
-<script src="assets/app.js"></script>
+<script src="assets/datos.js?v=6"></script>
+<script src="assets/app.js?v=6"></script>
 </body>
 </html>
